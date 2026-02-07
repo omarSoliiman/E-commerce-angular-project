@@ -1,0 +1,152 @@
+<div class="w-9/12 mx-auto">
+    @if (errorMsg().length > 0)
+    {
+    <div class=" p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+        role="alert">
+        <span class="font-medium"> {{errorMsg()}}</span>
+    </div>
+    }
+
+    <form [formGroup]="registerForm">
+        <!-- Name  -->
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">User Name </label>
+            <input type="text" formControlName="name"
+                class="bg-white-900 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500"
+                required />
+
+            @if(registerForm.get('name')?.errors && registerForm.get('name')?.touched){
+            @if (registerForm.get('name')?.getError('required'))
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> required</span>
+            </div>
+            } @else if (registerForm.get('name')?.getError('minlength'))
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> Min lenght is 3 charcters</span>
+            </div>
+            }
+            @else if (registerForm.get('name')?.getError('maxlength'))
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> Max lenght is 3 charcters</span>
+            </div>
+            }
+            }
+        </div>
+
+
+        <!-- Email  -->
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">Email</label>
+            <input type="email" formControlName="email"
+                class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500"
+                required />
+
+            @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched){
+            @if (registerForm.get('email')?.getError('required'))
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> required</span>
+            </div>
+
+            }@else if (registerForm.get('email')?.getError('email') && registerForm.get('email')?.touched)
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> Please enter valid Email</span>
+            </div>
+            }
+
+            }
+        </div>
+
+        <!-- Password  -->
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">Password</label>
+            <input type="password" formControlName="password"
+                class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500"
+                required />
+
+
+            @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched){
+            @if (registerForm.get('password')?.getError('required'))
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> required</span>
+            </div>
+
+            }@else if (registerForm.get('password')?.getError('pattern') && registerForm.get('password')?.touched)
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> Please enter valid Password</span>
+            </div>
+            }
+
+            }
+        </div>
+
+        <!-- rePassword  -->
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">Re Password</label>
+            <input type="password" formControlName="rePassword"
+                class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500"
+                required />
+
+            @if(registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched){
+            @if (registerForm.get('rePassword')?.getError('required'))
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> required</span>
+            </div>
+
+            }@else if (registerForm.get('rePassword')?.getError('pattern') )
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> Please enter valid Password</span>
+            </div>
+            }
+            }
+
+            @if (registerForm.errors?.['notmatched'] && registerForm.get('rePassword')?.touched) {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium">re Password should be the same password</span>
+            </div>
+            }
+        </div>
+
+        <!-- Phone   -->
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">Phone</label>
+            <input type="text" formControlName="phone"
+                class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500"
+                required />
+
+            @if(registerForm.get('phone')?.errors && registerForm.get('phone')?.touched){
+            @if (registerForm.get('phone')?.getError('required'))
+            {
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-white:bg-gray-800 bg-white:text-red-400"
+                role="alert">
+                <span class="font-medium"> required</span>
+            </div>
+
+            }
+            }
+        </div>
+
+        <button [disabled]="!registerForm.valid" type="submit"
+            class="bg-green-500 disabled:bg-green-300 rounded p-2 text-white mb-20" (click)="onSubmit()">
+            Submit @if (isLoading()) {<i class="fa-solid fa-spinner fa-spin"></i>}
+        </button>
+    </form>
+</div>

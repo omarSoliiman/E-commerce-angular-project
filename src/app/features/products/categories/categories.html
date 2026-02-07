@@ -1,0 +1,8 @@
+<div class="grid grid-cols-5 gap-6">
+    @for (brand of allBrands(); track $index) {
+    <div class="p-4 border rounded shadow text-center">
+        <h3 class="font-bold mb-2">{{ brand.name }}</h3>
+        <img [src]="brand.image" [alt]="brand.name" class="mx-auto" width="120">
+    </div>
+    }
+</div>

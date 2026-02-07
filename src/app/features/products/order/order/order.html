@@ -1,0 +1,29 @@
+<form [formGroup]="addressForm" (ngSubmit)="checkoutSubmit()">
+
+    <div class="mb-6 w-9/12 mx-auto">
+        <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">Details</label>
+        <input type="text" formControlName="details"
+            class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500" />
+
+    </div>
+
+
+    <div class="mb-6 w-9/12 mx-auto">
+        <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">Phone</label>
+        <input type="text" formControlName="phone"
+            class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500" />
+
+    </div>
+
+
+    <div class="mb-6 w-9/12 mx-auto">
+        <label class="block mb-2 text-sm font-medium text-gray-900 bg-white:text-bg-white">City</label>
+        <input type="text" formControlName="city"
+            class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 bg-white:bg-gray-700 bg-white:border-gray-600 bg-white:placeholder-gray-400 bg-white:text-white bg-white:focus:ring-green-500 bg-white:focus:border-green-500" />
+
+    </div>
+
+    <button type="submit" class="bg-green-500 mx-47 ml-12rem disabled:bg-green-300 rounded p-2 text-white mb-20">
+        Checkout
+    </button>
+</form>

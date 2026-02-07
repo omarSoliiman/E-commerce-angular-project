@@ -1,0 +1,13 @@
+<p>product-slider works!</p>
+<br>
+<owl-carousel-o [options]="customOptions">
+
+    @for (product of products; track product.id) {
+    <ng-template carouselSlide [id]="product.id">
+        <img [src]="product.imageCover" [title]="product.title">
+    </ng-template>
+    }
+
+</owl-carousel-o>
+<br>
+<br>
